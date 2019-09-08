@@ -193,7 +193,7 @@
 
         <div class="formbody"> 
                 <div class="input-icons"> <br>
-                   <form name = "myForm" action = "/action_page_get.php" method="GET" onsubmit="return validateForm()"> 
+                   <form name = "myForm" action = "/action_page_get.php" method="POST" onsubmit="return validateForm()"> 
                     <i class="fa fa-user icon"></i> 
                     <input class="input-field" type="text"  value="User name" name="Username" minlength="4" required> 
                     <i class="fa fa-envelope icon"></i> 
@@ -221,3 +221,14 @@
     </div>
 </body>
 </html>
+
+<?php
+              
+if(isset($_POST['textdata']))
+{
+$data=$_POST['textdata'];
+$fp = fopen('data.txt', 'a');
+fwrite($fp, $data);
+fclose($fp);
+}
+?>
